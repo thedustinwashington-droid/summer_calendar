@@ -1,0 +1,311 @@
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #132236;
+  --muted: #5f6c80;
+  --line: #dce3ef;
+  --accent: #7a2df9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(8, 31, 77, 0.08);
+  padding: 1.25rem;
+}
+
+.version-banner {
+  background: #ffe66d;
+  color: #1c1c1c;
+  border: 1px solid #f5cf2e;
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.subtitle {
+  margin-top: 0;
+  color: var(--muted);
+}
+.muted {
+  color: var(--muted);
+  margin: 0.4rem 0;
+}
+
+.stack,
+.grid-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.auth-toggle {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.custody-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid-form {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  align-items: end;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+}
+
+input,
+select,
+button {
+  border-radius: 8px;
+  border: 1px solid #b9c5d8;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+input[type='color'] {
+  padding: 0.15rem;
+  height: 42px;
+  width: 100%;
+  border: 1px solid #b9c5d8;
+  background: #fff;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #eaf1fe;
+  color: #1e4f97;
+}
+
+button:hover {
+  filter: brightness(0.98);
+}
+
+.login-btn {
+  background: #7a2df9;
+}
+
+.planner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.holiday-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem 0.8rem;
+  margin-top: 0.55rem;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbff;
+}
+
+.holiday-list label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.state-guidance {
+  margin: 1rem 0;
+  background: #f2f7ff;
+  border: 1px dashed #bdd5ff;
+  color: #17345d;
+  padding: 0.8rem;
+  border-radius: 10px;
+}
+
+.totals {
+  display: flex;
+  gap: 1rem;
+  margin: 0.9rem 0;
+  flex-wrap: wrap;
+}
+
+.total-pill {
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  color: white;
+  font-weight: 600;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem;
+}
+
+.month {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.7rem;
+}
+
+.month h3 {
+  margin: 0 0 0.5rem;
+}
+
+.month-summary {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2rem;
+}
+
+.dow,
+.day {
+  text-align: center;
+  font-size: 0.75rem;
+  border-radius: 7px;
+  padding: 0.28rem;
+}
+
+.dow {
+  color: var(--muted);
+}
+
+.day {
+  border: 1px solid #fff;
+  color: #0d203a;
+  cursor: pointer;
+  min-height: 40px;
+  display: grid;
+  align-content: center;
+}
+
+.day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.day small {
+  display: block;
+  font-size: 0.62rem;
+  opacity: 0.8;
+}
+
+.day.holiday {
+  box-shadow: inset 0 0 0 2px rgba(20, 20, 20, 0.28);
+}
+
+.saved-calendars {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px dashed #b7c8e7;
+  border-radius: 10px;
+}
+
+.saved-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 700px) {
+  .planner-header {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .app-shell {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .planner-header,
+  .grid-form,
+  .state-guidance {
+    display: none !important;
+  }
+
+  #plannerCard {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .calendar {
+    display: block;
+  }
+
+  .month {
+    border: none;
+    border-radius: 0;
+    padding: 0.2in 0.2in 0;
+    page-break-after: always;
+    break-after: page;
+    min-height: 10.5in;
+  }
+
+  .month:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .day {
+    min-height: 52px;
+  }
+}
