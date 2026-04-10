@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summer Parenting Scheduler</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="loginCard" class="card login-card">
+        <h1>Summer Parenting Scheduler</h1>
+        <p class="subtitle">Create a collaborative parenting-time summer plan.</p>
+        <form id="registerForm" class="stack">
+          <label>
+            Name
+            <input type="text" id="registerName" required placeholder="Full name" />
+          </label>
+          <label>
+            Role
+            <select id="registerRole" required>
+              <option value="father">Father</option>
+              <option value="mother">Mother</option>
+              <option value="attorney">Attorney</option>
+            </select>
+          </label>
+          <div class="custody-row">
+            <label><input type="checkbox" id="custodialBox" /> Custodial</label>
+            <label><input type="checkbox" id="nonCustodialBox" /> Non-custodial</label>
+          </div>
+          <label>
+            State
+            <select id="registerState" required>
+              <option value="IN">Indiana</option>
+            </select>
+          </label>
+          <label>
+            Password
+            <input type="password" id="registerPassword" required minlength="6" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="login-btn">Create Profile</button>
+        </form>
+        <div class="auth-toggle">
+          <button type="button" id="showLoginBtn" class="secondary">Already have an account? Log In</button>
+          <button type="button" id="showRegisterBtn" class="secondary hidden">Back to Create Profile</button>
+        </div>
+        <form id="loginForm" class="stack hidden">
+          <label>
+            Name
+            <input type="text" id="loginName" required placeholder="Full name" />
+          </label>
+          <label>
+            Password
+            <input type="password" id="loginPassword" required minlength="6" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="login-btn">Log In</button>
+        </form>
+      </section>
+
+      <section id="plannerCard" class="card hidden">
+        <header class="planner-header">
+          <div>
+            <h2>Summer Planner</h2>
+            <p>Build a proposed schedule and adjust day-by-day.</p>
+          </div>
+          <button id="logoutBtn" class="secondary">Log Out</button>
+        </header>
+
+        <form id="configForm" class="grid-form">
+          <label>
+            Summer start / last day of school
+            <input type="date" id="summerStart" required />
+          </label>
+          <label>
+            First day of next school year
+            <input type="date" id="schoolStart" required />
+          </label>
+          <label>
+            Parenting split
+            <select id="splitType">
+              <option value="alternating-week">50/50 alternating week</option>
+              <option value="2-2-3">2-2-3 rotation</option>
+              <option value="custom">Custom manual only</option>
+            </select>
+          </label>
+          <label>
+            State
+            <select id="state" required>
+              <option value="">Select state</option>
+            </select>
+          </label>
+          <label>
+            Custodial parent name
+            <input type="text" id="custodialName" value="Custodial Parent" required />
+          </label>
+          <label>
+            Non-custodial parent name
+            <input type="text" id="nonCustodialName" value="Non-Custodial Parent" required />
+          </label>
+          <label>
+            Custodial color
+            <input type="color" id="custodialColor" value="#2d7ff9" />
+          </label>
+          <label>
+            Non-custodial color
+            <input type="color" id="nonCustodialColor" value="#ff7a59" />
+          </label>
+          <label class="full-width">
+            Special holidays (YYYY-MM-DD:Parent A or Parent B, comma-separated)
+            <input
+              type="text"
+              id="holidays"
+              placeholder="2026-07-04:A, 2026-07-15:B"
+            />
+          </label>
+          <div id="indianaHolidaySection" class="full-width hidden">
+            <label>Indiana holidays</label>
+            <button type="button" id="holidayDropdownBtn" class="secondary">Select Indiana holidays</button>
+            <div id="indianaHolidayList" class="holiday-list hidden"></div>
+          </div>
+          <div class="full-width actions">
+            <button type="submit">Generate Schedule</button>
+            <button type="button" id="saveVersionBtn" class="secondary">Save Calendar Version</button>
+            <button type="button" id="updateVersionBtn" class="secondary">Update Selected Version</button>
+            <button type="button" id="shareBtn" class="secondary">Create Share Link</button>
+            <button type="button" id="downloadBtn" class="secondary">Download PDF</button>
+          </div>
+        </form>
+        <section id="savedCalendars" class="saved-calendars"></section>
+
+        <div class="state-guidance" id="stateGuidance"></div>
+
+        <section class="totals" id="totals"></section>
+        <section class="calendar" id="calendar"></section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
