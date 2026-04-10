@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summer Parenting Scheduler</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="loginCard" class="card login-card">
+        <h1>Summer Parenting Scheduler</h1>
+        <p class="subtitle">Create a collaborative parenting-time summer plan.</p>
+        <form id="loginForm" class="stack">
+          <label>
+            Email
+            <input type="email" id="email" required placeholder="parent@example.com" />
+          </label>
+          <label>
+            Password
+            <input type="password" id="password" required minlength="6" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="login-btn">Log In</button>
+        </form>
+      </section>
+
+      <section id="plannerCard" class="card hidden">
+        <header class="planner-header">
+          <div>
+            <h2>Summer Planner</h2>
+            <p>Build a proposed schedule and adjust day-by-day.</p>
+          </div>
+          <button id="logoutBtn" class="secondary">Log Out</button>
+        </header>
+
+        <form id="configForm" class="grid-form">
+          <label>
+            Summer start / last day of school
+            <input type="date" id="summerStart" required />
+          </label>
+          <label>
+            First day of next school year
+            <input type="date" id="schoolStart" required />
+          </label>
+          <label>
+            Parenting split
+            <select id="splitType">
+              <option value="alternating-week">50/50 alternating week</option>
+              <option value="2-2-3">2-2-3 rotation</option>
+              <option value="custom">Custom manual only</option>
+            </select>
+          </label>
+          <label>
+            State
+            <select id="state" required>
+              <option value="">Select state</option>
+            </select>
+          </label>
+          <label>
+            Custodial parent name
+            <input type="text" id="custodialName" value="Custodial Parent" required />
+          </label>
+          <label>
+            Non-custodial parent name
+            <input type="text" id="nonCustodialName" value="Non-Custodial Parent" required />
+          </label>
+          <label>
+            Custodial color
+            <input type="color" id="custodialColor" value="#2d7ff9" />
+          </label>
+          <label>
+            Non-custodial color
+            <input type="color" id="nonCustodialColor" value="#ff7a59" />
+          </label>
+          <label class="full-width">
+            Special holidays (YYYY-MM-DD:Parent A or Parent B, comma-separated)
+            <input
+              type="text"
+              id="holidays"
+              placeholder="2026-07-04:A, 2026-07-15:B"
+            />
+          </label>
+          <details id="indianaHolidaySection" class="full-width hidden">
+            <summary>Indiana Guideline Holiday Overrides</summary>
+            <p class="muted">
+              Select Indiana guideline holidays to automatically override the summer plan.
+            </p>
+            <div id="indianaHolidayList" class="holiday-list"></div>
+          </details>
+          <div class="full-width actions">
+            <button type="submit">Generate Schedule</button>
+            <button type="button" id="shareBtn" class="secondary">Create Share Link</button>
+            <button type="button" id="downloadBtn" class="secondary">Download PDF</button>
+          </div>
+        </form>
+
+        <div class="state-guidance" id="stateGuidance"></div>
+
+        <section class="totals" id="totals"></section>
+        <section class="calendar" id="calendar"></section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
