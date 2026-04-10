@@ -40,6 +40,13 @@ body {
   margin-top: 0;
   color: var(--muted);
 }
+<<<<<<< codex/create-summer-parenting-schedule-application
+.muted {
+  color: var(--muted);
+  margin: 0.4rem 0;
+}
+=======
+>>>>>>> main
 
 .stack,
 .grid-form {
@@ -71,6 +78,17 @@ button {
   font-size: 0.95rem;
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
+input[type='color'] {
+  padding: 0.15rem;
+  height: 42px;
+  width: 100%;
+  border: 1px solid #b9c5d8;
+  background: #fff;
+}
+
+=======
+>>>>>>> main
 button {
   background: var(--accent);
   color: #fff;
@@ -87,6 +105,13 @@ button:hover {
   filter: brightness(0.98);
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
+.login-btn {
+  background: #1f9d55;
+}
+
+=======
+>>>>>>> main
 .planner-header {
   display: flex;
   justify-content: space-between;
@@ -100,6 +125,21 @@ button:hover {
   gap: 0.7rem;
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
+.holiday-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem 0.8rem;
+}
+
+.holiday-list label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+=======
+>>>>>>> main
 .state-guidance {
   margin: 1rem 0;
   background: #f2f7ff;
@@ -139,6 +179,15 @@ button:hover {
   margin: 0 0 0.5rem;
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
+.month-summary {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+=======
+>>>>>>> main
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -177,6 +226,13 @@ button:hover {
   opacity: 0.8;
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
+.day.holiday {
+  box-shadow: inset 0 0 0 2px rgba(20, 20, 20, 0.28);
+}
+
+=======
+>>>>>>> main
 @media (max-width: 700px) {
   .planner-header {
     flex-direction: column;
@@ -184,3 +240,52 @@ button:hover {
     gap: 0.5rem;
   }
 }
+<<<<<<< codex/create-summer-parenting-schedule-application
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .app-shell {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .planner-header,
+  .grid-form,
+  .state-guidance {
+    display: none !important;
+  }
+
+  #plannerCard {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .calendar {
+    display: block;
+  }
+
+  .month {
+    border: none;
+    border-radius: 0;
+    padding: 0.2in 0.2in 0;
+    page-break-after: always;
+    break-after: page;
+    min-height: 10.5in;
+  }
+
+  .month:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .day {
+    min-height: 52px;
+  }
+}
+=======
+>>>>>>> main
