@@ -1,106 +1,59 @@
 # Summer Parenting Scheduler
 
-A lightweight web app to draft a summer parenting-time calendar with interactive day-by-day editing.
+A lightweight web app to draft a summer parenting-time calendar.
 
-## What this includes today
+## Simplest deployment (no code, ~2 minutes)
 
-- Login screen (UI only; no real authentication backend yet).
-- Inputs for:
-  - summer start date / last day of school
-  - first day of next school year
-  - schedule split (alternating week, 2-2-3, custom)
-  - state selector (guidance reminders)
-  - parent names and colors
-  - holiday overrides (`YYYY-MM-DD:A` or `YYYY-MM-DD:B`)
-- Interactive, color-coded calendar with click-to-toggle day ownership.
-- Running overnight totals for each parent.
-- Shareable URL (state encoded in hash).
-- PDF export through browser print.
+If you want this live quickly without dealing with servers:
+
+1. Go to **Netlify Drop**: https://app.netlify.com/drop
+2. Drag and drop these 3 files from this repo:
+   - `index.html`
+   - `app.js`
+   - `styles.css`
+3. Netlify gives you a live URL immediately.
+
+That’s it.
 
 ---
 
-## Run in a real local environment (recommended)
+## Simplest "real" deployment with login-ready backend path
 
-### 1) Install prerequisites
+If you want a URL now and room to grow later:
 
-- Node.js 18+ (Node 20 LTS recommended)
-- npm (included with Node)
+1. Push this repo to GitHub.
+2. On **Render.com** create a new **Web Service** from the repo.
+3. Use these settings:
+   - Build command: `npm install`
+   - Start command: `npm start`
+4. Deploy.
 
-### 2) Install dependencies
+Render provides a public URL and runs `server.js` for you.
+
+---
+
+## Local run
 
 ```bash
 npm install
-```
-
-### 3) Start the app
-
-```bash
 npm start
 ```
 
-This starts an Express server on `http://localhost:8080` by default.
-
-### 4) Open in browser
-
-Visit:
-
-- `http://localhost:8080`
-- Health check: `http://localhost:8080/health`
+Open `http://localhost:8080`.
 
 ---
 
-## Run with Docker
-
-### Build
+## Docker (optional)
 
 ```bash
 docker build -t summer-parenting-scheduler .
-```
-
-### Run
-
-```bash
 docker run --rm -p 8080:8080 summer-parenting-scheduler
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080`.
 
 ---
 
-## Deploy to a hosted environment
+## Important note
 
-You can deploy this app as a standard Node web service on Render, Railway, Fly.io, Azure Web Apps, AWS Elastic Beanstalk, etc.
-
-### Generic deployment settings
-
-- **Build command:** `npm install`
-- **Start command:** `npm start`
-- **Environment variable:** `PORT` (most hosts provide this automatically)
-- **Health check path:** `/health`
-
----
-
-## Important production notes
-
-The current app is intentionally lightweight and **not yet production-grade** for legal workflows.
-
-Before using for actual parent-facing/legal coordination, add:
-
-1. Real authentication (e.g., Auth0/Clerk/Firebase Auth/AWS Cognito).
-2. Persistent storage (PostgreSQL or similar) for schedules and audit history.
-3. Role-based access and invitation flow (both parents, mediator, attorney).
-4. Server-side encryption and secure backups.
-5. Immutable change history / revision tracking.
-6. Clear legal disclaimer and jurisdiction-specific rule engine reviewed by counsel.
-
----
-
-## Validation checks
-
-```bash
-npm run check
-```
-
-## Legal note
-
-This tool is for planning support only and does not replace legal advice, a signed agreement, or a court order.
+Current login is UI-only (no real auth/database yet). The app is good for drafting schedules, but not yet production-grade legal recordkeeping.
