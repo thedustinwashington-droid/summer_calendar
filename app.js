@@ -6,8 +6,11 @@ const configForm = document.getElementById('configForm');
 const totalsEl = document.getElementById('totals');
 const calendarEl = document.getElementById('calendar');
 const stateGuidanceEl = document.getElementById('stateGuidance');
+<<<<<<< codex/create-summer-parenting-schedule-application
 const indianaHolidaySection = document.getElementById('indianaHolidaySection');
 const indianaHolidayList = document.getElementById('indianaHolidayList');
+=======
+>>>>>>> main
 
 const STATES = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN',
@@ -26,6 +29,7 @@ const STATE_GUIDELINES = {
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 let scheduleMap = new Map();
+<<<<<<< codex/create-summer-parenting-schedule-application
 let holidayTagMap = new Map();
 
 const INDIANA_HOLIDAYS = [
@@ -38,6 +42,8 @@ const INDIANA_HOLIDAYS = [
   { id: 'fourth', label: 'Fourth of July (Jul 3-5)', rule: 'odd-ncp' },
   { id: 'halloween', label: 'Halloween (Oct 31)', rule: 'odd-ncp' }
 ];
+=======
+>>>>>>> main
 
 function initStates() {
   for (const code of STATES) {
@@ -56,10 +62,14 @@ function startOfDay(date) {
 
 function toISO(date) {
   const d = startOfDay(date);
+<<<<<<< codex/create-summer-parenting-schedule-application
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
   return `${y}-${m}-${day}`;
+=======
+  return d.toISOString().slice(0, 10);
+>>>>>>> main
 }
 
 function parseHolidayOverrides(raw) {
@@ -76,6 +86,7 @@ function parseHolidayOverrides(raw) {
   return map;
 }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
 function getSelectedIndianaHolidays() {
   return [...indianaHolidayList.querySelectorAll('input[type="checkbox"]:checked')].map((el) => el.value);
 }
@@ -157,6 +168,8 @@ function buildIndianaHolidayRanges(year, id) {
   return [];
 }
 
+=======
+>>>>>>> main
 function generateBaseOwner(index, splitType) {
   if (splitType === 'custom') return 'A';
   if (splitType === 'alternating-week') {
@@ -176,7 +189,10 @@ function generateSchedule(config) {
   const holidayOverrides = parseHolidayOverrides(config.holidays);
 
   scheduleMap = new Map();
+<<<<<<< codex/create-summer-parenting-schedule-application
   holidayTagMap = new Map();
+=======
+>>>>>>> main
   let i = 0;
 
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
@@ -185,6 +201,7 @@ function generateSchedule(config) {
     scheduleMap.set(iso, owner);
     i += 1;
   }
+<<<<<<< codex/create-summer-parenting-schedule-application
 
   if (config.state === 'IN') {
     const selected = config.indianaHolidays || [];
@@ -207,6 +224,8 @@ function generateSchedule(config) {
       }
     }
   }
+=======
+>>>>>>> main
 }
 
 function renderTotals(config) {
@@ -260,6 +279,7 @@ function renderCalendar(config) {
       year: 'numeric'
     });
 
+<<<<<<< codex/create-summer-parenting-schedule-application
     const monthTotals = monthEntries.reduce((acc, entry) => {
       if (entry.owner === 'A') acc.a += 1;
       else acc.b += 1;
@@ -270,6 +290,8 @@ function renderCalendar(config) {
     monthSummary.className = 'month-summary';
     monthSummary.textContent = `${config.nameA}: ${monthTotals.a} • ${config.nameB}: ${monthTotals.b}`;
 
+=======
+>>>>>>> main
     const daysEl = document.createElement('div');
     daysEl.className = 'days';
 
@@ -293,7 +315,10 @@ function renderCalendar(config) {
       dayEl.className = 'day';
       dayEl.dataset.iso = entry.iso;
       paintDay(dayEl, entry.owner, config);
+<<<<<<< codex/create-summer-parenting-schedule-application
       if (holidayTagMap.has(entry.iso)) dayEl.classList.add('holiday');
+=======
+>>>>>>> main
       dayEl.innerHTML = `${entry.date.getDate()}<small>${entry.owner === 'A' ? config.nameA : config.nameB}</small>`;
       dayEl.addEventListener('click', () => {
         const current = scheduleMap.get(entry.iso);
@@ -305,7 +330,11 @@ function renderCalendar(config) {
       daysEl.appendChild(dayEl);
     }
 
+<<<<<<< codex/create-summer-parenting-schedule-application
     monthEl.append(heading, monthSummary, daysEl);
+=======
+    monthEl.append(heading, daysEl);
+>>>>>>> main
     calendarEl.appendChild(monthEl);
   }
 }
@@ -326,8 +355,12 @@ function readConfig() {
     nameB: document.getElementById('nonCustodialName').value,
     colorA: document.getElementById('custodialColor').value,
     colorB: document.getElementById('nonCustodialColor').value,
+<<<<<<< codex/create-summer-parenting-schedule-application
     holidays: document.getElementById('holidays').value,
     indianaHolidays: getSelectedIndianaHolidays()
+=======
+    holidays: document.getElementById('holidays').value
+>>>>>>> main
   };
 }
 
@@ -359,6 +392,7 @@ function loadFromShare() {
     document.getElementById('custodialColor').value = payload.colorA;
     document.getElementById('nonCustodialColor').value = payload.colorB;
     document.getElementById('holidays').value = payload.holidays;
+<<<<<<< codex/create-summer-parenting-schedule-application
     if (payload.state === 'IN') {
       toggleIndianaHolidaySection(true);
       const selected = new Set(payload.indianaHolidays || []);
@@ -366,6 +400,8 @@ function loadFromShare() {
         box.checked = selected.has(box.value);
       }
     }
+=======
+>>>>>>> main
 
     scheduleMap = new Map(Object.entries(payload.schedule || {}));
     const cfg = readConfig();
@@ -432,6 +468,7 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 });
 
 initStates();
+<<<<<<< codex/create-summer-parenting-schedule-application
 initIndianaHolidays();
 loadFromShare();
 
@@ -454,3 +491,6 @@ function toggleIndianaHolidaySection(show) {
 stateSelect.addEventListener('change', (event) => {
   toggleIndianaHolidaySection(event.target.value === 'IN');
 });
+=======
+loadFromShare();
+>>>>>>> main

@@ -2,8 +2,11 @@
 
 A lightweight web app to draft a summer parenting-time calendar.
 
+<<<<<<< codex/create-summer-parenting-schedule-application
 Indiana-specific option included: selectable Indiana guideline holiday overrides (including alternating-year Fourth of July handling).
 
+=======
+>>>>>>> main
 ## Simplest deployment (no code, ~2 minutes)
 
 If you want this live quickly without dealing with servers:
@@ -19,6 +22,7 @@ That’s it.
 
 ---
 
+<<<<<<< codex/create-summer-parenting-schedule-application
 ## Deploy this project to a brand-new GitHub repository
 
 If you created a new repo (for example `Summer`), use this exact flow:
@@ -56,6 +60,8 @@ Note: The Pages workflow appends a commit-hash query string to CSS/JS on deploy 
 
 ---
 
+=======
+>>>>>>> main
 ## Simplest "real" deployment with login-ready backend path
 
 If you want a URL now and room to grow later:
