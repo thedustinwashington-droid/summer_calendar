@@ -2,8 +2,6 @@
 
 A lightweight web app to draft a summer parenting-time calendar.
 
-Indiana-specific option included: selectable Indiana guideline holiday overrides (including alternating-year Fourth of July handling).
-
 ## Simplest deployment (no code, ~2 minutes)
 
 If you want this live quickly without dealing with servers:
@@ -16,23 +14,6 @@ If you want this live quickly without dealing with servers:
 3. Netlify gives you a live URL immediately.
 
 That’s it.
-
----
-
-## GitHub Pages (why you may not be seeing changes)
-
-GitHub Pages only serves static files (`index.html`, `app.js`, `styles.css`). It does **not** run `server.js`.
-
-This repo includes a Pages workflow at `.github/workflows/deploy-pages.yml` that deploys automatically on pushes to your default branch (`main` or `master`).
-
-If changes are not showing:
-
-1. Make sure your PR is merged into `main`.
-2. In GitHub, go to **Settings → Pages** and ensure **Source = GitHub Actions**.
-3. Check the **Actions** tab for a successful `Deploy static site to GitHub Pages` run.
-4. Hard refresh your site (`Ctrl+Shift+R` / `Cmd+Shift+R`) to bypass cache.
-
-If you use a custom domain, also confirm DNS still points to GitHub Pages.
 
 ---
 
