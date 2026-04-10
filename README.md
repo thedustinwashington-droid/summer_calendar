@@ -44,6 +44,9 @@ Yes—this is configured to auto-publish. After you push (or merge) a commit, Gi
 You usually do **not** need to click **Update branch** just to publish site updates.  
 Use **Update branch** only when GitHub says your PR branch is behind and you need to bring `main` into that PR branch.
 
+To reduce manual conflict cleanup, this repo now includes an auto-rebase workflow:
+`.github/workflows/auto-rebase-pr.yml` (rebases PR branches onto base automatically when possible).
+
 GitHub Pages only serves static files (`index.html`, `app.js`, `styles.css`). It does **not** run `server.js`.
 
 This repo includes a Pages workflow at `.github/workflows/deploy-pages.yml` that deploys automatically on **every branch push** so updates appear as soon as commits are pushed.
